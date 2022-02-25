@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap");
+
+:root {
+  --text: #fa58b6;
+  --background: #1a1a40;
+  --background2: #270082;
+  --foreground1: #700b97;
+  --foreground2: ##b900ff;
+}
