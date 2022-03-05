@@ -1,5 +1,4 @@
 import logo from "./logo.svg";
-import { Parallax } from "react-parallax";
 import "./App.css";
 import Home from "./pages/Home";
 import NavBar from "./components/navbar";
@@ -10,7 +9,8 @@ import { useSpring, animated, useChain } from "react-spring";
 
 function App() {
   const [animationChain, setAnimationChain] = useState([]);
-  useChain(animationChain);
+  useChain(animationChain, [0, 0.4, 0.6, 0.8, 1]);
+
   return (
     <div className="App">
       <NavBar
@@ -18,13 +18,17 @@ function App() {
         setAnimationChain={setAnimationChain}
         useAnimation={useAnimation}
       />
+
       <Home
         animationChain={animationChain}
         setAnimationChain={setAnimationChain}
         useAnimation={useAnimation}
+        id="home"
       />
-      <Project />
-      <Contact />
+
+      <Project id="project" />
+
+      <Contact id="contact" />
     </div>
   );
 }
