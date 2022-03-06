@@ -4,7 +4,7 @@ import foreground1 from "../img/foreground1.png";
 import hello from "../img/Hello.png";
 import resume from "../img/icons8-resume-500.png";
 import github from "../img/icons8-github.png";
-import { useSpring, animated, useChain } from "react-spring";
+import { animated } from "react-spring";
 function Home({ animationChain, setAnimationChain, useAnimation }) {
   const introTextRef = useRef();
   const introTextStyle = useAnimation(introTextRef, 0, 0, 0, -500);
@@ -39,11 +39,13 @@ function Home({ animationChain, setAnimationChain, useAnimation }) {
             src={resume}
             className="inner1"
             style={introLinkStyle}
+            alt="resume icon"
           />
           <animated.img
             src={github}
             className="inner2"
             style={introLinkStyle}
+            alt="github icon"
           />
         </div>
       </div>
@@ -52,35 +54,17 @@ function Home({ animationChain, setAnimationChain, useAnimation }) {
           src={foreground1}
           className="child child-1"
           style={foreground1Style}
+          alt="foreground for character to stand on"
         />
         <animated.img
           src={hello}
           className="child child-2"
           style={helloImageStyle}
+          alt="a greeting image"
         />
       </div>
     </div>
   );
 }
-// const useAnimation = (ref, mTop, mRight, mBottom, mLeft) => {
-//   const spring = useSpring({
-//     from: {
-//       opacity: 0,
-//       marginTop: mTop,
-//       marginRight: mRight,
-//       marginBottom: mBottom,
-//       marginLeft: mLeft,
-//     },
-//     to: {
-//       opacity: 1,
-//       marginTop: 0,
-//       marginRight: 0,
-//       marginBottom: 0,
-//       marginLeft: 0,
-//     },
-//     ref: ref,
-//   });
-//   return spring;
-// };
 
 export default Home;

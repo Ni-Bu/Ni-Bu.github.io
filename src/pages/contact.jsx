@@ -10,7 +10,7 @@ function Contact(props) {
         </div>
         <div className="email">muhammadahmad9497@hotmail.com</div>
       </div>
-      <img src={bye} className="image" />
+      <img src={bye} className="image" alt="a character saying goodbye" />
     </div>
   );
 }

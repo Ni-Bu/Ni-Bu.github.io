@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import foreground2 from "../img/foreground2.png";
 import water from "../img/water-cooler.png";
 
@@ -6,9 +6,17 @@ function Project(props) {
   return (
     <div className="project">
       <div className="image-container">
-        <img src={foreground2} className="inner2" />
+        <img
+          src={foreground2}
+          className="inner2"
+          alt="foreground for character to lean against"
+        />
 
-        <img src={water} className="inner1" />
+        <img
+          src={water}
+          className="inner1"
+          alt="a character leaning against a water cooler"
+        />
       </div>
       <div className="content-container">
         <button className="child-1">

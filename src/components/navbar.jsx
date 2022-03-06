@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Home from "./../pages/Home";
-import { useSpring, animated, useChain } from "react-spring";
+import { animated } from "react-spring";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 function NavBar({ animationChain, setAnimationChain, useAnimation }) {
@@ -42,8 +41,9 @@ function NavBar({ animationChain, setAnimationChain, useAnimation }) {
           to="contact"
           spy={true}
           smooth={true}
-          // duration={500}
-          onClick={scrollToBottom}
+          duration={500}
+          offset={10}
+          // onClick={scrollToBottom}
         >
           Contact
         </Link>

@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Home from "./pages/Home";
 import NavBar from "./components/navbar";
 import Project from "./pages/Project";
 import Contact from "./pages/Contact";
 import React, { useState } from "react";
-import { useSpring, animated, useChain } from "react-spring";
+import { useSpring, useChain } from "react-spring";
 
 function App() {
   const [animationChain, setAnimationChain] = useState([]);
