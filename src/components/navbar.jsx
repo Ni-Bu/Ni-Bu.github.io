@@ -8,13 +8,13 @@ function NavBar({ animationChain, setAnimationChain, useAnimation }) {
   useEffect(() => {
     setAnimationChain((old) => [...old, navRef]);
   }, []);
-  const scrollToBottom = () => {
-    scroll.scrollToBottom();
-  };
+
   return (
     <div className="nav-container">
       <animated.div className="nav-bar" style={navStyle}>
-        <Link className="logo">Logo</Link>
+        <Link to="home" className="logo">
+          Logo
+        </Link>
         <Link
           activeClass="active"
           to="home"

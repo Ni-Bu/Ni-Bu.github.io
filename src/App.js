@@ -7,25 +7,26 @@ import React, { useState } from "react";
 import { useSpring, useChain } from "react-spring";
 
 function App() {
-  const [animationChain, setAnimationChain] = useState([]);
-  useChain(animationChain, [0, 0.4, 0.6, 0.8, 1]);
+  const [introAnimationChain, setIntroAnimationChain] = useState([]);
+  useChain(introAnimationChain, [0, 0.4, 0.6, 0.8, 1]);
 
   return (
     <div className="App">
+      <div className="dummy-container"></div>
       <NavBar
-        animationChain={animationChain}
-        setAnimationChain={setAnimationChain}
+        animationChain={introAnimationChain}
+        setAnimationChain={setIntroAnimationChain}
         useAnimation={useAnimation}
       />
 
       <Home
-        animationChain={animationChain}
-        setAnimationChain={setAnimationChain}
+        animationChain={introAnimationChain}
+        setAnimationChain={setIntroAnimationChain}
         useAnimation={useAnimation}
         id="home"
       />
 
-      <Project id="project" />
+      <Project id="project" useAnimation={useAnimation} />
 
       <Contact id="contact" />
     </div>

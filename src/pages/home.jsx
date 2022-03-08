@@ -5,6 +5,7 @@ import hello from "../img/Hello.png";
 import resume from "../img/icons8-resume-500.png";
 import github from "../img/icons8-github.png";
 import { animated } from "react-spring";
+
 function Home({ animationChain, setAnimationChain, useAnimation }) {
   const introTextRef = useRef();
   const introTextStyle = useAnimation(introTextRef, 0, 0, 0, -500);
@@ -25,7 +26,6 @@ function Home({ animationChain, setAnimationChain, useAnimation }) {
     ]);
   }, []);
 
-  console.log(animationChain);
   return (
     <div className="home">
       <div className="intro-left-container">
