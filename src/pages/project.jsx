@@ -4,7 +4,7 @@ import water from "../img/water-cooler.png";
 import { useInViewEffect } from "react-hook-inview";
 import { animated, useChain } from "react-spring";
 
-function Project({ useAnimation, inView, setInView }) {
+function Project({ useAnimation, setInView }) {
   const [isVisible, setIsVisible] = useState(false);
   let animationChain;
   const ref = useInViewEffect(

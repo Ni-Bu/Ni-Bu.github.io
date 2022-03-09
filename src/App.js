@@ -19,26 +19,20 @@ function App() {
     <div className="App">
       <div className="dummy-container"></div>
       <NavBar
-        animationChain={introAnimationChain}
         setAnimationChain={setIntroAnimationChain}
         useAnimation={useAnimation}
         inView={inView}
       />
 
       <Home
-        animationChain={introAnimationChain}
         setAnimationChain={setIntroAnimationChain}
         useAnimation={useAnimation}
         setInView={setInView}
       />
 
-      <Project
-        useAnimation={useAnimation}
-        inView={inView}
-        setInView={setInView}
-      />
+      <Project useAnimation={useAnimation} setInView={setInView} />
 
-      <Contact setInView={setInView} />
+      <Contact useAnimation={useAnimation} setInView={setInView} />
     </div>
   );
 }

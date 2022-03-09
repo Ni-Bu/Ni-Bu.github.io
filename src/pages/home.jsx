@@ -7,13 +7,7 @@ import github from "../img/icons8-github.png";
 import { animated } from "react-spring";
 import { useInViewEffect } from "react-hook-inview";
 
-function Home({
-  animationChain,
-  setAnimationChain,
-  useAnimation,
-  inView,
-  setInView,
-}) {
+function Home({ setAnimationChain, useAnimation, setInView }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useInViewEffect(
     ([entry], observer) => {

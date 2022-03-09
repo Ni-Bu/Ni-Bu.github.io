@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { animated } from "react-spring";
-import { Link, animateScroll as scroll } from "react-scroll";
-import { useInView } from "react-hook-inview";
 
-function NavBar({ animationChain, setAnimationChain, useAnimation, inView }) {
+function NavBar({ setAnimationChain, useAnimation, inView }) {
   const navRef = useRef();
   const navStyle = useAnimation(navRef, -100, 0, 0, 0);
   useEffect(() => {
