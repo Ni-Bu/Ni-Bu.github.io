@@ -4,15 +4,16 @@ import water from "../img/water-cooler.png";
 import { useInViewEffect } from "react-hook-inview";
 import { animated, useChain } from "react-spring";
 
-function Project({ useAnimation }) {
+function Project({ useAnimation, inView, setInView }) {
   const [isVisible, setIsVisible] = useState(false);
   let animationChain;
   const ref = useInViewEffect(
     ([entry], observer) => {
-      if (entry.isIntersecting) {
-        observer.unobserve(entry.target);
-      }
       setIsVisible(entry.isIntersecting);
+      setInView((prevState) => ({
+        ...prevState,
+        project: entry.isIntersecting,
+      }));
     },
     { threshold: 0.5 }
   );
@@ -32,7 +33,7 @@ function Project({ useAnimation }) {
 
   useChain(animationChain, [0.4, 0.8, 1.1, 1.3]);
   return (
-    <div className="project" ref={ref}>
+    <div className="project" ref={ref} id="project">
       <div className="image-container">
         <animated.img
           src={foreground2}

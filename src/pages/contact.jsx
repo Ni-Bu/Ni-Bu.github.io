@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import bye from "../img/bye.png";
-function Contact(props) {
+import { useInViewEffect } from "react-hook-inview";
+function Contact({ useAnimation, inView, setInView }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useInViewEffect(
+    ([entry], observer) => {
+      setIsVisible(entry.isIntersecting);
+      setInView((prevState) => ({
+        ...prevState,
+        contact: entry.isIntersecting,
+      }));
+    },
+    { threshold: 0.5 }
+  );
   return (
-    <div className="contact">
+    <div className="contact" id="contact" ref={ref}>
       <div className="text-container">
         <div>
           Thanks for making it this far.

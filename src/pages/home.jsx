@@ -1,12 +1,31 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import foreground1 from "../img/foreground1.png";
 import hello from "../img/Hello.png";
 import resume from "../img/icons8-resume-500.png";
 import github from "../img/icons8-github.png";
 import { animated } from "react-spring";
+import { useInViewEffect } from "react-hook-inview";
 
-function Home({ animationChain, setAnimationChain, useAnimation }) {
+function Home({
+  animationChain,
+  setAnimationChain,
+  useAnimation,
+  inView,
+  setInView,
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useInViewEffect(
+    ([entry], observer) => {
+      setIsVisible(entry.isIntersecting);
+      setInView((prevState) => ({
+        ...prevState,
+        home: entry.isIntersecting,
+      }));
+    },
+    { threshold: 0.5 }
+  );
+
   const introTextRef = useRef();
   const introTextStyle = useAnimation(introTextRef, 0, 0, 0, -500);
   const introLinkRef = useRef();
@@ -27,7 +46,7 @@ function Home({ animationChain, setAnimationChain, useAnimation }) {
   }, []);
 
   return (
-    <div className="home">
+    <div className="home" id="home" ref={ref}>
       <div className="intro-left-container">
         <div className="intro-text-container">
           <animated.div className="intro-text" style={introTextStyle}>

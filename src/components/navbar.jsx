@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { animated } from "react-spring";
 import { Link, animateScroll as scroll } from "react-scroll";
+import { useInView } from "react-hook-inview";
 
-function NavBar({ animationChain, setAnimationChain, useAnimation }) {
+function NavBar({ animationChain, setAnimationChain, useAnimation, inView }) {
   const navRef = useRef();
   const navStyle = useAnimation(navRef, -100, 0, 0, 0);
   useEffect(() => {
@@ -12,41 +13,20 @@ function NavBar({ animationChain, setAnimationChain, useAnimation }) {
   return (
     <div className="nav-container">
       <animated.div className="nav-bar" style={navStyle}>
-        <Link to="home" className="logo">
+        <a to="home" className="logo">
           Logo
-        </Link>
-        <Link
-          activeClass="active"
-          to="home"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
-        >
+        </a>
+        <a className={inView.home ? "active" : ""} href="#home">
           Home
-        </Link>
+        </a>
         <div>|</div>
-        <Link
-          activeClass="active"
-          to="project"
-          spy={true}
-          smooth={true}
-          duration={500}
-        >
+        <a className={inView.project ? "active" : ""} href="#project">
           Projects
-        </Link>
+        </a>
         <div>|</div>
-        <Link
-          activeClass="active"
-          to="contact"
-          spy={true}
-          smooth={true}
-          duration={500}
-          offset={10}
-          // onClick={scrollToBottom}
-        >
+        <a className={inView.contact ? "active" : ""} href="#contact">
           Contact
-        </Link>
+        </a>
       </animated.div>
     </div>
   );

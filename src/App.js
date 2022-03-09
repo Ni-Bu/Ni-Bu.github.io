@@ -9,6 +9,11 @@ import { useSpring, useChain } from "react-spring";
 function App() {
   const [introAnimationChain, setIntroAnimationChain] = useState([]);
   useChain(introAnimationChain, [0, 0.4, 0.6, 0.8, 1]);
+  const [inView, setInView] = useState({
+    home: false,
+    project: false,
+    contact: false,
+  });
 
   return (
     <div className="App">
@@ -17,18 +22,23 @@ function App() {
         animationChain={introAnimationChain}
         setAnimationChain={setIntroAnimationChain}
         useAnimation={useAnimation}
+        inView={inView}
       />
 
       <Home
         animationChain={introAnimationChain}
         setAnimationChain={setIntroAnimationChain}
         useAnimation={useAnimation}
-        id="home"
+        setInView={setInView}
       />
 
-      <Project id="project" useAnimation={useAnimation} />
+      <Project
+        useAnimation={useAnimation}
+        inView={inView}
+        setInView={setInView}
+      />
 
-      <Contact id="contact" />
+      <Contact setInView={setInView} />
     </div>
   );
 }
