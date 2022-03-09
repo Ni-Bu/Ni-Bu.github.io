@@ -50,10 +50,10 @@ function Project({ useAnimation, setInView }) {
         />
       </div>
       <div className="content-container">
-        <animated.button className="child-1" style={buttonLeftStyle}>
+        <animated.button className=" child-1" style={buttonLeftStyle}>
           TaskNet: <br />A todo-list app.
         </animated.button>
-        <animated.button className="child-2" style={buttonRightStyle}>
+        <animated.button className=" child-2" style={buttonRightStyle}>
           Resume
         </animated.button>
       </div>
